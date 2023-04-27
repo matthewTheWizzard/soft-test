@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { CURRENCY_RUB } from '../../constants';
 import { calculateEmployeeConditions } from '../../utils';
+import s from './PaymentInfo.module.scss';
 
 type PaymentInfoType = {
   requestSalary: number;
@@ -11,7 +12,7 @@ const PaymentInfo: FC<PaymentInfoType> = ({ requestSalary, tax }) => {
   const salary = calculateEmployeeConditions(tax, requestSalary, 13);
 
   return (
-    <div>
+    <div className={s.bg}>
       <p>
         <b>
           {requestSalary ? salary.salary : 0} {CURRENCY_RUB}

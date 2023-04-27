@@ -1,5 +1,5 @@
 import { FC, useState, useRef, RefAttributes } from 'react'
-import { OverlayTrigger, Tooltip, Overlay, TooltipProps } from 'react-bootstrap'
+import { OverlayTrigger, Tooltip, TooltipProps } from 'react-bootstrap'
 
 type TooltipType = {
   children: string,
@@ -28,7 +28,6 @@ const MyTooltip: FC<TooltipType> = ({ children }) => {
       show={show ? show : undefined}
       target={target.current}
       onToggle={showTooltip}
-      trigger={['hover']}
       placement="bottom"
       overlay={renderTooltip}
     >
