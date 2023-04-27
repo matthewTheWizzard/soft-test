@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Form, Field } from 'react-final-form';
-import { PaymentInfo, Condition } from '../../components';
-import { CURRENCY_RUB } from '../../constants';
+import { PaymentInfo, Condition, Tooltip } from '../../components';
+import { CURRENCY_RUB, MROT_TOOLTIP } from '../../constants';
 
 const MyForm: FC = () => {
   const onSubmit = () => {
@@ -26,6 +26,7 @@ const MyForm: FC = () => {
           <div>
             <Field name="payment" value="mrot" component="input" type="radio" />
             <label>МРОТ</label>
+            <Tooltip>{MROT_TOOLTIP}</Tooltip>
           </div>
           <div>
             <Field name="payment" value="day" component="input" type="radio" />
