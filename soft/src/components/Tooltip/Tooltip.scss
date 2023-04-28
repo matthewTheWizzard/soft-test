@@ -4,8 +4,9 @@
 }
 
 .tooltip {
-  left: 10px !important;
   --bs-tooltip-opacity: 1 !important;
+  left: 10px !important;
+
   .tooltip-arrow {
     --bs-tooltip-arrow-width: 1.3rem;
     --bs-tooltip-arrow-height: 0.8rem;
@@ -14,15 +15,17 @@
     left: 3px !important;
     top: 1px !important;
     transform: rotate(90deg) !important;
+
     &:before {
       bottom: 0px !important;
     }
   }
+
   .tooltip-inner {
-    font-size: .7rem;
-    padding: 10px;
-    background-color: hsl(230.77deg 31.97% 52.16%);
     --bs-tooltip-opacity: 1;
+    padding: 10px;
+    font-size: 0.7rem;
+    background-color: hsl(230.77deg 31.97% 52.16%);
     border-radius: 0;
     text-align: left;
   }

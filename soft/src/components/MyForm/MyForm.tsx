@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import { Form, Field } from 'react-final-form';
 import { PaymentInfo, Condition, Tooltip } from '../../components';
-import { CURRENCY_RUB, MROT_TOOLTIP } from '../../constants';
+import { MROT_TOOLTIP } from '../../constants';
+import { dEformatMoneyInput, formatMoneyInput } from '../../utils';
 import F from 'react-bootstrap/Form';
 import './MyForm.scss';
 
@@ -10,17 +11,17 @@ const MyForm: FC = () => {
     return;
   };
 
-  const showCurrency = (value: string) => {
-    console.log(value);
+  const showCurrency = (value: string): string => {
     switch (value) {
       case 'day':
-        return `${CURRENCY_RUB} в день`;
+        return `₽ в день`;
       case 'hour':
-        return `${CURRENCY_RUB} в час`;
+        return `₽ в час`;
       default:
-        return `${CURRENCY_RUB}`;
+        return `₽`;
     }
   };
+
 
   return (
     <Form
@@ -87,17 +88,17 @@ const MyForm: FC = () => {
                 </div>
                 <div className="form-check currency">
                   <Field
-                    value={parseInt(values.money).toLocaleString('ru-RU')}
                     name="money"
                     component="input"
-                    type="number"
+                    type="text"
+                    parse={formatMoneyInput}
                   />
                   <F.Label>{showCurrency(values.payment)}</F.Label>
                 </div>
               </>
             </Condition>
             <Condition when="payment" is="month">
-              <PaymentInfo requestSalary={values.money} tax={values.tax} />
+              <PaymentInfo requestSalary={dEformatMoneyInput(values.money)} tax={values.tax} />
             </Condition>
           </fieldset>
         </form>

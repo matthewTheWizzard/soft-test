@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { CURRENCY_RUB } from '../../constants';
 import { calculateEmployeeConditions } from '../../utils';
+import { formatMoneyInput } from '../../utils';
 import s from './PaymentInfo.module.scss';
 
 type PaymentInfoType = {
@@ -9,26 +9,20 @@ type PaymentInfoType = {
 };
 
 const PaymentInfo: FC<PaymentInfoType> = ({ requestSalary, tax }) => {
-  const salary = calculateEmployeeConditions(tax, requestSalary, 13);
+  const { budget, salary, percent } = calculateEmployeeConditions(tax, requestSalary, 13);
 
   return (
     <div className={s.bg}>
       <p>
-        <b>
-          {requestSalary ? salary.salary : 0} {CURRENCY_RUB}
-        </b>{' '}
+        <b>{requestSalary ? formatMoneyInput(salary) : 0} ₽</b>{' '}
         <small>сотрудник будет получать на руки</small>
       </p>
       <p>
-        <b>
-          {requestSalary ? salary.tax : 0} {CURRENCY_RUB}
-        </b>{' '}
+        <b>{requestSalary ? formatMoneyInput(percent) : 0} ₽</b>{' '}
         <small>НДФЛ, 13% от оклада</small>
       </p>
       <p>
-        <b>
-          {requestSalary ? salary.budget : 0} {CURRENCY_RUB}
-        </b>{' '}
+        <b>{requestSalary ? formatMoneyInput(budget) : 0} ₽</b>{' '}
         <small>за сотрудника в месяц</small>
       </p>
     </div>
