@@ -29,7 +29,7 @@ const MyTooltip: FC<TooltipType> = ({ children }) => {
     <OverlayTrigger
       show={show ? show : undefined}
       target={target.current}
-      placement="bottom"
+      placement="bottom-start"
       overlay={renderTooltip}
     >
       <button className="tooltip-btn" onClick={showTooltip}>

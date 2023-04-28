@@ -2,3 +2,25 @@
   background-color: transparent;
   border: none;
 }
+
+.tooltip {
+  left: 10px !important;
+  --bs-tooltip-opacity: 1 !important;
+  .tooltip-arrow {
+    --bs-tooltip-arrow-width: 1.3rem;
+    --bs-tooltip-arrow-height: 0.8rem;
+    --bs-tooltip-arrow-width: 1.26rem;
+    --bs-tooltip-bg:  hsl(230.77deg 31.97% 52.16%);
+    left: 3px !important;
+    top: 1px !important;
+    transform: rotate(90deg) !important;
+    &:before {
+      bottom: 0px !important;
+    }
+  }
+  .tooltip-inner {
+  background-color: hsl(230.77deg 31.97% 52.16%);
+    --bs-tooltip-opacity: 1;
+    border-radius: 0;
+  }
+}
