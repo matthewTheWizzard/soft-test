@@ -1,9 +1,11 @@
-import { FC, useState, useRef, RefAttributes } from 'react'
-import { OverlayTrigger, Tooltip, TooltipProps } from 'react-bootstrap'
+import { FC, useState, useRef, RefAttributes } from 'react';
+import { OverlayTrigger, Tooltip, TooltipProps } from 'react-bootstrap';
+import { AlertCircle, CircleX } from 'tabler-icons-react';
+import './Tooltip.scss'
 
 type TooltipType = {
-  children: string,
-}
+  children: string;
+};
 
 const MyTooltip: FC<TooltipType> = ({ children }) => {
   const [show, setShow] = useState(false);
@@ -20,20 +22,21 @@ const MyTooltip: FC<TooltipType> = ({ children }) => {
   );
 
   const showTooltip = () => {
-    setShow(!show)
-  }
+    setShow(!show);
+  };
 
   return (
     <OverlayTrigger
       show={show ? show : undefined}
       target={target.current}
-      onToggle={showTooltip}
       placement="bottom"
       overlay={renderTooltip}
     >
-      <button onClick={showTooltip}>x</button>
+      <button className="tooltip-btn" onClick={showTooltip}>
+        {show ? <CircleX /> : <AlertCircle />}
+      </button>
     </OverlayTrigger>
   );
-}
+};
 
 export { MyTooltip as Tooltip };
