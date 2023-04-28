@@ -59,22 +59,26 @@ const MyForm: FC = () => {
               />
               <label className="label">Оклад за час</label>
             </div>
-            <div className="form-switch-container">
-              <span>Указать с НДФЛ</span>
-              <div className="form-check form-switch">
-                <Field
-                  className="form-check-input switch-custom"
-                  name="tax"
-                  component="input"
-                  type="checkbox"
-                />
-                <F.Label className="form-check-label">Без НДФЛ</F.Label>
+            <Condition when="payment" is="mrot" not={true}>
+              <>
+              <div className="form-switch-container">
+                <span>Указать с НДФЛ</span>
+                <div className="form-check form-switch">
+                  <Field
+                    className="form-check-input switch-custom"
+                    name="tax"
+                    component="input"
+                    type="checkbox"
+                  />
+                  <F.Label className="form-check-label">Без НДФЛ</F.Label>
+                </div>
               </div>
-            </div>
-            <div>
-              <Field name="money" component="input" type="number" />
-              <F.Label> {CURRENCY_RUB}</F.Label>
-            </div>
+              <div className="form-check currency">
+                <Field name="money" component="input" type="number" />
+                <F.Label> {CURRENCY_RUB}</F.Label>
+              </div>
+              </>
+            </Condition>
             <Condition when="payment" is="month">
               <PaymentInfo requestSalary={values.money} tax={values.tax} />
             </Condition>
