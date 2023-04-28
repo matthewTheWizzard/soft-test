@@ -86,7 +86,12 @@ const MyForm: FC = () => {
                   </div>
                 </div>
                 <div className="form-check currency">
-                  <Field name="money" component="input" type="number" />
+                  <Field
+                    value={parseInt(values.money).toLocaleString('ru-RU')}
+                    name="money"
+                    component="input"
+                    type="number"
+                  />
                   <F.Label>{showCurrency(values.payment)}</F.Label>
                 </div>
               </>

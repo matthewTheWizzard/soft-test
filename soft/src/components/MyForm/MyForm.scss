@@ -1,7 +1,6 @@
 .fieldset {
-  border: 1px solid black;
-  min-height: 320px;
-  width: 320px;
+  min-height: 350px;
+  width: 360px;
 
   legend {
     font-size: 1rem;
@@ -79,6 +78,7 @@
 .currency {
   margin-left: 2.5rem;
   padding-left: 0 !important;
+  margin-bottom: 15px !important;
 
   input {
     border: 2px solid grey;

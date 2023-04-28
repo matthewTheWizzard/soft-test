@@ -17,19 +17,19 @@ const PaymentInfo: FC<PaymentInfoType> = ({ requestSalary, tax }) => {
         <b>
           {requestSalary ? salary.salary : 0} {CURRENCY_RUB}
         </b>{' '}
-        сотрудник будет получать на руки
+        <small>сотрудник будет получать на руки</small>
       </p>
       <p>
         <b>
           {requestSalary ? salary.tax : 0} {CURRENCY_RUB}
         </b>{' '}
-        НДФЛ, 13% от оклада
+        <small>НДФЛ, 13% от оклада</small>
       </p>
       <p>
         <b>
           {requestSalary ? salary.budget : 0} {CURRENCY_RUB}
         </b>{' '}
-        за сотрудника в месяц
+        <small>за сотрудника в месяц</small>
       </p>
     </div>
   );
