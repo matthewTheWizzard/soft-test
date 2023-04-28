@@ -10,6 +10,18 @@ const MyForm: FC = () => {
     return;
   };
 
+  const showCurrency = (value: string) => {
+    console.log(value);
+    switch (value) {
+      case 'day':
+        return `${CURRENCY_RUB} в день`;
+      case 'hour':
+        return `${CURRENCY_RUB} в час`;
+      default:
+        return `${CURRENCY_RUB}`;
+    }
+  };
+
   return (
     <Form
       onSubmit={onSubmit}
@@ -61,22 +73,22 @@ const MyForm: FC = () => {
             </div>
             <Condition when="payment" is="mrot" not={true}>
               <>
-              <div className="form-switch-container">
-                <span>Указать с НДФЛ</span>
-                <div className="form-check form-switch">
-                  <Field
-                    className="form-check-input switch-custom"
-                    name="tax"
-                    component="input"
-                    type="checkbox"
-                  />
-                  <F.Label className="form-check-label">Без НДФЛ</F.Label>
+                <div className="form-switch-container">
+                  <span>Указать с НДФЛ</span>
+                  <div className="form-check form-switch">
+                    <Field
+                      className="form-check-input switch-custom"
+                      name="tax"
+                      component="input"
+                      type="checkbox"
+                    />
+                    <F.Label className="form-check-label">Без НДФЛ</F.Label>
+                  </div>
                 </div>
-              </div>
-              <div className="form-check currency">
-                <Field name="money" component="input" type="number" />
-                <F.Label> {CURRENCY_RUB}</F.Label>
-              </div>
+                <div className="form-check currency">
+                  <Field name="money" component="input" type="number" />
+                  <F.Label>{showCurrency(values.payment)}</F.Label>
+                </div>
               </>
             </Condition>
             <Condition when="payment" is="month">

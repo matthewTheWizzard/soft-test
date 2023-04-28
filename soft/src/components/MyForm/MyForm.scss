@@ -10,7 +10,7 @@
 
 .form-switch-container {
   display: flex;
-  justify-content: center;
+  margin-left: 2.5rem;
   align-items: center;
   gap: 10px;
   font-size: 0.8rem;
@@ -65,7 +65,7 @@
   }
 }
 
-.form-check.form-switch{
+.form-check.form-switch {
   display: flex;
   align-items: center;
   .form-label {
@@ -73,5 +73,30 @@
     margin-bottom: 0;
     display: inline-block;
     margin-left: 5px;
+  }
+}
+
+.currency {
+  margin-left: 2.5rem;
+  padding-left: 0 !important;
+
+  input {
+    border: 2px solid grey;
+    border-radius: 2rem;
+    padding-left: 1.2rem;
+    min-width: 11rem;
+    width: 0;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  label {
+    margin-left: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
   }
 }
