@@ -1,7 +1,9 @@
 import { FC, useState, useRef, RefAttributes } from 'react';
 import { OverlayTrigger, Tooltip, TooltipProps } from 'react-bootstrap';
-import { AlertCircle, CircleX } from 'tabler-icons-react';
-import './Tooltip.scss'
+// import { AlertCircle, CircleX } from 'tabler-icons-react';
+import { ReactComponent as IconX } from '../../assets/cross.svg'
+import { ReactComponent as IconInfo } from '../../assets/info.svg'
+import './Tooltip.scss';
 
 type TooltipType = {
   children: string;
@@ -33,7 +35,7 @@ const MyTooltip: FC<TooltipType> = ({ children }) => {
       overlay={renderTooltip}
     >
       <button className="tooltip-btn" onClick={showTooltip}>
-        {show ? <CircleX /> : <AlertCircle />}
+        {show ? <IconX className="icon" /> : <IconInfo className="icon" />}
       </button>
     </OverlayTrigger>
   );

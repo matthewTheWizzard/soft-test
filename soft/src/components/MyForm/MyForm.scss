@@ -1,17 +1,19 @@
 .fieldset {
-  min-height: 350px;
-  width: 360px;
+  min-height: 650px;
+  width: 390px;
 
   legend {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.7rem;
   }
 }
 
 .form-switch-container {
   display: flex;
   margin-left: 2.5rem;
+  margin-top: 0.6rem;
   align-items: center;
-  gap: 10px;
+  gap: 28px;
   font-size: 0.8rem;
 
   span {
@@ -24,15 +26,16 @@
   place-content: center;
   appearance: none;
   margin: 0;
-  width: 18px;
-  height: 18px;
-  border: 2px solid gray;
+  width: 14px;
+  height: 14px;
+  border: 1px solid gray;
   border-radius: 50%;
+  transform: translateY(-2px);
 
   &::before {
     content: '';
-    width: 0.65em;
-    height: 0.65em;
+    width: 0.5em;
+    height: 0.5em;
     border-radius: 50%;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
@@ -45,8 +48,17 @@
 }
 
 .label {
-  margin-left: 10px;
+  margin-left: 12px;
   font-weight: bold;
+}
+
+.form-check {
+  padding-left: 0.8rem !important;
+  margin-bottom: 0.25rem !important;
+  input,
+  label {
+    cursor: pointer;
+  }
 }
 
 .form-check-input.switch-custom {
@@ -54,21 +66,31 @@
   height: 1.2rem;
   padding: 0;
   margin: 0;
+  background-size: 20px;
+  background-image: url('../../assets/switch-on.svg') !important;
+  background-color: rgb(214, 214, 214);
+  border-color: rgb(214, 214, 214);
+
   &:checked {
     background-color: #eba800;
     border-color: #eba800;
+    // background-image: url('../../assets/switch-on.svg') !important;
   }
 
   &:focus {
-    box-shadow: 0 0 0 0.25rem rgba(253, 181, 13, 0.25);
+    box-shadow: none;
+    border-color: transparent;
   }
 }
 
 .form-check.form-switch {
   display: flex;
   align-items: center;
-  .form-label {
+  .form-check-label {
     font-weight: bold;
+    margin-top: 5px;
+    font-weight: 600;
+    color: black;
     margin-bottom: 0;
     display: inline-block;
     margin-left: 5px;
@@ -78,13 +100,14 @@
 .currency {
   margin-left: 2.5rem;
   padding-left: 0 !important;
-  margin-bottom: 15px !important;
+  margin-top: 15px !important;
+  margin-bottom: 24px !important;
 
   input {
     border: 2px solid grey;
     border-radius: 2rem;
-    padding-left: 1.2rem;
-    min-width: 11rem;
+    padding-left: .8rem;
+    min-width: 10rem;
     width: 0;
   }
 

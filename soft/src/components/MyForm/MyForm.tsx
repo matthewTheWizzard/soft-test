@@ -38,8 +38,9 @@ const MyForm: FC = () => {
                 value="month"
                 component="input"
                 type="radio"
+                id="check_month"
               />
-              <label className="label">Оклад за месяц</label>
+              <label htmlFor="check_month" className="label">Оклад за месяц</label>
             </div>
             <div className="form-check">
               <Field
@@ -48,8 +49,9 @@ const MyForm: FC = () => {
                 value="mrot"
                 component="input"
                 type="radio"
+                id="check_mrot"
               />
-              <label className="label">МРОТ</label>
+              <label htmlFor='check_mrot' className="label">МРОТ</label>
               <Tooltip>{MROT_TOOLTIP}</Tooltip>
             </div>
             <div className="form-check">
@@ -59,8 +61,9 @@ const MyForm: FC = () => {
                 value="day"
                 component="input"
                 type="radio"
+                id="check_day"
               />
-              <label className="label">Оклад за день</label>
+              <label htmlFor='check_day' className="label">Оплата за день</label>
             </div>
             <div className="form-check">
               <Field
@@ -69,8 +72,9 @@ const MyForm: FC = () => {
                 value="hour"
                 component="input"
                 type="radio"
+                id="check_hour"
               />
-              <label className="label">Оклад за час</label>
+              <label htmlFor="check_hour" className="label">Оплата за час</label>
             </div>
             <Condition when="payment" is="mrot" not={true}>
               <>
@@ -83,7 +87,7 @@ const MyForm: FC = () => {
                       component="input"
                       type="checkbox"
                     />
-                    <F.Label className="form-check-label">Без НДФЛ</F.Label>
+                    <span className="form-check-label">Без НДФЛ</span>
                   </div>
                 </div>
                 <div className="form-check currency">
@@ -92,6 +96,7 @@ const MyForm: FC = () => {
                     component="input"
                     type="text"
                     parse={formatMoneyInput}
+                    maxLength={10}
                   />
                   <F.Label>{showCurrency(values.payment)}</F.Label>
                 </div>
